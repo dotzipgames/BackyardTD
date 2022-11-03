@@ -15,7 +15,8 @@ public class EnemyMove : MonoBehaviour
     {
         waypointIndex = 0;
         transform.position = waypoints[waypointIndex].position;
-        moveSpeed = Random.Range(1f, 3f);
+        //moveSpeed = Random.Range(1f, 3f);
+        moveSpeed = 6f;
     }
 
     void Update()
@@ -39,9 +40,9 @@ public class EnemyMove : MonoBehaviour
 
         if (waypointIndex == waypoints.Length)
         {
-            Destroy(enemy);
             Enemy spawnedEnemy = GameObject.Find("Enemy").GetComponent<Enemy>();
             spawnedEnemy.spawnedEnemy -= 1;
+            Destroy(enemy);
         }
     }
 }

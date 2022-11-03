@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+
 
 public class Enemy : MonoBehaviour
 {
@@ -11,41 +15,38 @@ public class Enemy : MonoBehaviour
     private int enemyCount;
 
     [SerializeField] private float delay = 0.5f;
-    public int waves;
+    public int wavesleft;
 
     [SerializeField] private GameObject parent;
     [SerializeField] private Transform[] waypoints;
     public Texts texts;
     public float spawnedEnemy;
 
+    [SerializeField] private GameObject wcGameObject;
+    [SerializeField] private TMP_Text wcText;
+
     void Start()
     {
-        //waves = Random.Range(2, 5);
-        waves = 0;
+        //wavesleft = Random.Range(2, 5);
+        wavesleft = 1;
         enemyCount = 1;
         //enemyCount = Random.Range(2, 7);
-        StartCoroutine(Spawn());    }
+        StartCoroutine(Spawn());
+        
+    }
 
     void Update()
     {
-        while (waves < 0)
-        {   
-            Debug.Log("Enemies Left: " + spawnedEnemy);
-            Debug.Log("Waves Left: " + waves);
-        }
-
-        
         if (spawnedEnemy == 0)
         {
-            if (waves == 0)
+
+            if (wavesleft == -1)
             {
-                waves--;
-                Debug.Log("Last wave has ended.");
-                texts.WaveCleared();
+                SceneManager.LoadScene("Wave Cleared");
             }
-            else if (waves != 0)
+            else if (wavesleft != -1)
             {
-                waves--;
+                wavesleft--;
                 NewWave();
             }
         }
@@ -55,12 +56,12 @@ public class Enemy : MonoBehaviour
     {
         //enemyCount = Random.Range(2, 7);
         enemyCount = 1;
-        StartCoroutine(Spawn());
+        StartCoroutine(CountdownNextWave());
     }
 
     IEnumerator Spawn()
     {
-        
+        wcGameObject.SetActive(false);
         for (int i = 0; i < enemyCount; i++)
         {
             GameObject instenemy = Instantiate(enemy, parent.transform);
@@ -68,5 +69,19 @@ public class Enemy : MonoBehaviour
             spawnedEnemy++;
             yield return new WaitForSeconds(delay);
         }
+    }
+
+    IEnumerator CountdownNextWave()
+    {
+        wcGameObject.SetActive(true);
+
+        for (int i = 5; i > 0; i--)
+        {
+            wcText.SetText("Next Wave: \n" + i + "\n Seconds.");
+            yield return new WaitForSeconds(i);
+        }
+        
+        StartCoroutine(Spawn());
+        yield return null;
     }
 }
