@@ -1459,6 +1459,7 @@ GameObject:
   - component: {fileID: 438349216}
   - component: {fileID: 438349215}
   - component: {fileID: 438349214}
+  - component: {fileID: 438349218}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1551,6 +1552,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &438349218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438349213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52868230dc5501d43bc28ad479712a25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shop: {fileID: 1180426730}
 --- !u!1 &523985575
 GameObject:
   m_ObjectHideFlags: 0
@@ -2650,7 +2664,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Pink Man\nDamage: 5 hp\nAtt. Cooldown: 1.2s\n\nPrice: \u20AC 50,-"
+  m_text: "Pink Man\nDamage: 5 hp\nAtt. Cooldown: 1.2s\n\nPrice: \u20AC 125,-"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa7da9943dde0444dabc2b926caea62e, type: 2}
   m_sharedMaterial: {fileID: 1859935438628196669, guid: aa7da9943dde0444dabc2b926caea62e, type: 2}
@@ -5368,7 +5382,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1594426144
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7917,15 +7931,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6976939564784366211, guid: ab07005f9e674f648bc7b88e95d80e9f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6976939564784366211, guid: ab07005f9e674f648bc7b88e95d80e9f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6976939564784366211, guid: ab07005f9e674f648bc7b88e95d80e9f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976939564784366211, guid: ab07005f9e674f648bc7b88e95d80e9f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 438349218}
+    - target: {fileID: 6976939564784366211, guid: ab07005f9e674f648bc7b88e95d80e9f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 438349218}
+    - target: {fileID: 6976939564784366211, guid: ab07005f9e674f648bc7b88e95d80e9f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976939564784366211, guid: ab07005f9e674f648bc7b88e95d80e9f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976939564784366211, guid: ab07005f9e674f648bc7b88e95d80e9f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenShop
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976939564784366211, guid: ab07005f9e674f648bc7b88e95d80e9f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: CloseShop
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976939564784366211, guid: ab07005f9e674f648bc7b88e95d80e9f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Shop, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976939564784366211, guid: ab07005f9e674f648bc7b88e95d80e9f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Shop, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976939564784366211, guid: ab07005f9e674f648bc7b88e95d80e9f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976939564784366211, guid: ab07005f9e674f648bc7b88e95d80e9f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
