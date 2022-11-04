@@ -15,7 +15,15 @@ public class Texts : MonoBehaviour
     [SerializeField] private TMP_Text enemyText;
     void Update()
     {
-        wavesText.SetText("Waves Left: " + Enemy.wavesleft);
-        enemyText.SetText("Enemies Left: " + Enemy.spawnedEnemy);
+        if (Enemy.wavesleft == 0)
+        {
+            wavesText.SetText("Last Wave!");
+            enemyText.SetText("Enemies Left: " + Enemy.enemies.Count);
+        }
+        else
+        {
+            wavesText.SetText("Waves Left: " + Enemy.wavesleft);
+            enemyText.SetText("Enemies Left: " + Enemy.enemies.Count);
+        }
     }
 }

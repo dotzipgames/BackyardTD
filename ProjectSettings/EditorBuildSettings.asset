@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Wave Cleared.unity
     guid: c96eabf3354848243b57354f4f0f3743
+  - enabled: 1
+    path: Assets/Scenes/Game Over.unity
+    guid: 818dfc46503268247868597ba679d5d8
   m_configObjects: {}

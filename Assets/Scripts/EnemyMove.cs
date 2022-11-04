@@ -6,17 +6,19 @@ using UnityEngine;
 public class EnemyMove : MonoBehaviour
 {
     [SerializeField] private GameObject enemy;
+    [SerializeField] private float dmg;
     [SerializeField] private float moveSpeed;
+    private PlayerHealth player;
 
     private Transform[] waypoints;
     private int waypointIndex;
 
     void Start()
     {
+        player = GameObject.Find("Player").GetComponent<PlayerHealth>();
         waypointIndex = 0;
         transform.position = waypoints[waypointIndex].position;
-        //moveSpeed = Random.Range(1f, 3f);
-        moveSpeed = 6f;
+        moveSpeed = Random.Range(1f, 3f);
     }
 
     void Update()
@@ -40,9 +42,9 @@ public class EnemyMove : MonoBehaviour
 
         if (waypointIndex == waypoints.Length)
         {
-            Enemy spawnedEnemy = GameObject.Find("Enemy").GetComponent<Enemy>();
-            spawnedEnemy.spawnedEnemy -= 1;
-            Destroy(enemy);
+            Enemy.enemies.Remove(gameObject);
+            player.TakeDmg(dmg);
+            Destroy(gameObject);
         }
     }
 }

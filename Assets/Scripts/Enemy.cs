@@ -25,26 +25,32 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject wcGameObject;
     [SerializeField] private TMP_Text wcText;
 
+    public static List<GameObject> enemies;
+
+    private bool endWave;
+
+    void Awake()
+    {
+        enemies = new List<GameObject>();
+        endWave = false;
+    }
     void Start()
     {
-        //wavesleft = Random.Range(2, 5);
-        wavesleft = 1;
-        enemyCount = 1;
-        //enemyCount = Random.Range(2, 7);
-        StartCoroutine(Spawn());
+        wavesleft = Random.Range(2, 5);
+        NewWave();
         
     }
 
     void Update()
     {
-        if (spawnedEnemy == 0)
+        if (enemies.Count == 0 && endWave == false)
         {
-
-            if (wavesleft == -1)
+            endWave = true;
+            if (wavesleft == 0)
             {
                 SceneManager.LoadScene("Wave Cleared");
             }
-            else if (wavesleft != -1)
+            else if (wavesleft != 0)
             {
                 wavesleft--;
                 NewWave();
@@ -54,8 +60,7 @@ public class Enemy : MonoBehaviour
     
     void NewWave()
     {
-        //enemyCount = Random.Range(2, 7);
-        enemyCount = 1;
+        enemyCount = Random.Range(2, 7);
         StartCoroutine(CountdownNextWave());
     }
 
@@ -64,11 +69,13 @@ public class Enemy : MonoBehaviour
         wcGameObject.SetActive(false);
         for (int i = 0; i < enemyCount; i++)
         {
+            
             GameObject instenemy = Instantiate(enemy, parent.transform);
             instenemy.GetComponent<EnemyMove>().Waypoints(waypoints);
-            spawnedEnemy++;
+            enemies.Add(instenemy);
             yield return new WaitForSeconds(delay);
         }
+        endWave = false;
     }
 
     IEnumerator CountdownNextWave()
@@ -77,8 +84,8 @@ public class Enemy : MonoBehaviour
 
         for (int i = 5; i > 0; i--)
         {
-            wcText.SetText("Next Wave: \n" + i + "\n Seconds.");
-            yield return new WaitForSeconds(i);
+            wcText.SetText("Wave starts in: \n" + i + "\n Seconds.");
+            yield return new WaitForSeconds(1);
         }
         
         StartCoroutine(Spawn());
