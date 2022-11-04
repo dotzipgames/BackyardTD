@@ -7,7 +7,17 @@ using TMPro;
 public class Shop : MonoBehaviour
 {
     [SerializeField] private GameObject shop;
-    private bool isActive = false;
+
+    [SerializeField] private GameObject NFT, PMT;
+    [SerializeField] private GameObject parent;
+
+    private bool isActive;
+
+    private void Start()
+    {
+        isActive = false;
+        shop.SetActive(false);
+    }
 
     public void OpenShop()
     {
@@ -22,4 +32,17 @@ public class Shop : MonoBehaviour
             isActive = false;
         }
     }
+
+    public void SpawnNFT()
+    {
+        shop.SetActive(false);
+        Instantiate(NFT, parent.transform);
+    }
+
+    public void SpawnPMT()
+    {
+        shop.SetActive(false);
+        Instantiate(PMT, parent.transform);
+    }
+
 }
