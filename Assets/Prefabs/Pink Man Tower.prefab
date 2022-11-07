@@ -117,7 +117,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!61 &4422602717923450377
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -170,7 +170,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1640697881011527474}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -212,6 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlaced: 0
   collisionCheck: 0
+  radiusRenderer: {fileID: 5421017989291992358}
 --- !u!114 &1640697881011527470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de885549225adb4cb93ff5cb54097f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 0}
+  canAttack: 1
   damage: 5
   attackCooldown: 1.2
 --- !u!95 &1640697881011527473

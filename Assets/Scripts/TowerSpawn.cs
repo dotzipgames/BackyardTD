@@ -10,8 +10,9 @@ public class TowerSpawn : MonoBehaviour
     [SerializeField] private bool isPlaced = false;
     [SerializeField] private bool collisionCheck = false;
 
+    [SerializeField] private SpriteRenderer radiusRenderer;
+
     private SpriteRenderer sprite;
-    private SpriteRenderer radiusRenderer;
     private PlayerCurrency playerCurrency;
     private MousePositionManager mousePositionManager;
 
@@ -22,7 +23,6 @@ public class TowerSpawn : MonoBehaviour
 
     {
         sprite = GetComponent<SpriteRenderer>();
-        radiusRenderer = GameObject.Find("Radius").GetComponent<SpriteRenderer>();
         playerCurrency = GameObject.Find("Player").GetComponent<PlayerCurrency>();
         mousePositionManager = GameObject.Find("Player").GetComponent<MousePositionManager>();
 
@@ -36,21 +36,22 @@ public class TowerSpawn : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            isPlaced = true;
+            if (collisionCheck == false)
+            {
+                isPlaced = true;
+            }
         }
 
-            if (isPlaced == false)
+        if (isPlaced == false)
         {
-            Debug.Log("isPlaced: " + isPlaced);
-            Debug.Log("collisionCheck: " + collisionCheck);
             transform.position = mousePositionManager.newPos;
         }
 
         if (isPlaced == true && collisionCheck == false)
         {
+            radiusRenderer.enabled = false;
             gameObject.GetComponent<TowerAttack>().enabled = true;
             gameObject.GetComponent<Animator>().enabled = true;
-            radiusRenderer.enabled = false;
             DeductBalance();
             Destroy(this);
         
@@ -73,12 +74,8 @@ public class TowerSpawn : MonoBehaviour
         }
 
     }
-    void OnMouseDown()
-    {
-        isPlaced = true;
-    }
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.tag == "Border")
         {

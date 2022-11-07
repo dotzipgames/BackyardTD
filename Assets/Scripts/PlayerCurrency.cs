@@ -21,7 +21,7 @@ public class PlayerCurrency : MonoBehaviour
 
     public void Stonks()
     {
-        balance += Random.Range(7, 13);
+        balance += Random.Range(15, 25);
         balanceText.SetText("Balance: € " + balance + ",-");
     }
 

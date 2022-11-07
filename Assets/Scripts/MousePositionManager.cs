@@ -16,5 +16,6 @@ public class MousePositionManager : MonoBehaviour
     private void Update()
     {
         mousePos = Input.mousePosition;
-        newPos = cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, cam.nearClipPlane));    }
+        newPos = cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, cam.nearClipPlane));
+    }
 }
