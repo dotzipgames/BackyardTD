@@ -5,9 +5,9 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Texts : MonoBehaviour
+public class TextsLvl2 : MonoBehaviour
 {
-    public Enemy Enemy;
+    public Lvl2 Lvl2;
     public EnemyMove EnemyMove;
 
     public TMP_Text wavesText;
@@ -20,15 +20,15 @@ public class Texts : MonoBehaviour
     }
     void Update()
     {
-        if (Enemy.wavesLeft == 0)
+        if (Lvl2.wavesLeft == 0)
         {
             wavesText.SetText("Last Wave!");
-            enemyText.SetText("Enemies Left: " + Enemy.enemies.Count);
+            enemyText.SetText("Enemies Left: " + Lvl2.enemies.Count);
         }
         else
         {
-            wavesText.SetText("Waves Left: " + Enemy.wavesLeft);
-            enemyText.SetText("Enemies Left: " + Enemy.enemies.Count);
+            wavesText.SetText("Waves Left: " + Lvl2.wavesLeft);
+            enemyText.SetText("Enemies Left: " + Lvl2.enemies.Count);
         }
     }
 }

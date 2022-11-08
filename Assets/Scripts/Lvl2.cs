@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour
+public class Lvl2 : MonoBehaviour
 {
 
     [SerializeField] private GameObject enemy;
@@ -18,13 +18,13 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private GameObject parent;
     [SerializeField] private Transform[] waypoints;
-    public Texts texts;
+    public TextsLvl2 texts;
     public float spawnedEnemy;
 
     [SerializeField] private GameObject wcGameObject;
     [SerializeField] private TMP_Text wcText;
 
-    [SerializeField] private GameObject startFirstWaveButton; 
+    [SerializeField] private GameObject startFirstWaveButton;
 
     public static List<GameObject> enemies;
 
@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour
                 endWave = true;
                 if (wavesLeft == 0)
                 {
-                    SceneManager.LoadScene("Wave Cleared");
+                    SceneManager.LoadScene("End Screen");
                 }
                 else if (wavesLeft != 0)
                 {
@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-    
+
     public void StartFirstWave()
     {
         startFirstWaveButton.SetActive(false);
@@ -66,19 +66,20 @@ public class Enemy : MonoBehaviour
         NewWave();
     }
 
-    void NewWave()  
+    void NewWave()
     {
         enemyCount = Random.Range(2, 7);
-        startGame = true;
         StartCoroutine(CountdownNextWave());
     }
 
     IEnumerator Spawn()
     {
         wcGameObject.SetActive(false);
+        startGame = true;
+
         for (int i = 0; i < enemyCount; i++)
         {
-            
+
             GameObject instenemy = Instantiate(enemy, parent.transform);
             instenemy.GetComponent<EnemyMove>().Waypoints(waypoints);
             enemies.Add(instenemy);
@@ -96,7 +97,7 @@ public class Enemy : MonoBehaviour
             wcText.SetText("Wave starts in: \n" + i + "\n Seconds.");
             yield return new WaitForSeconds(1);
         }
-        
+
         StartCoroutine(Spawn());
         yield return null;
     }

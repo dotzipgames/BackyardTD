@@ -1,7 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
@@ -10,6 +9,8 @@ public class WaveCleared : MonoBehaviour
 
     [SerializeField] private TMP_Text clearedSmallT;
     [SerializeField] private float delay = 1f;
+
+    private Enemy enemy;
 
     public void Start()
     {
