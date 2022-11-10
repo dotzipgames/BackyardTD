@@ -7,11 +7,12 @@ using UnityEngine;
 
 public class TextsLvl2 : MonoBehaviour
 {
-    public Lvl2 Lvl2;
+    public Lvl2 lvl2;
     public EnemyMove EnemyMove;
 
     public TMP_Text wavesText;
     public TMP_Text enemyText;
+
 
     private void Awake()
     {
@@ -20,15 +21,15 @@ public class TextsLvl2 : MonoBehaviour
     }
     void Update()
     {
-        if (Lvl2.wavesLeft == 0)
+        if (lvl2.wavesLeft == 0)
         {
             wavesText.SetText("Last Wave!");
-            enemyText.SetText("Enemies Left: " + Lvl2.enemies.Count);
+            enemyText.SetText("Enemies Left: " + lvl2.enemies.Count);
         }
         else
         {
-            wavesText.SetText("Waves Left: " + Lvl2.wavesLeft);
-            enemyText.SetText("Enemies Left: " + Lvl2.enemies.Count);
+            wavesText.SetText("Waves Left: " + lvl2.wavesLeft);
+            enemyText.SetText("Enemies Left: " + lvl2.enemies.Count);
         }
     }
 }

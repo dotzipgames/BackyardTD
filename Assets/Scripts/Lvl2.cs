@@ -26,7 +26,7 @@ public class Lvl2 : MonoBehaviour
 
     [SerializeField] private GameObject startFirstWaveButton;
 
-    public static List<GameObject> enemies;
+    public List<GameObject> enemies; 
 
     private bool endWave;
     public bool startGame = false;
@@ -81,7 +81,7 @@ public class Lvl2 : MonoBehaviour
         {
 
             GameObject instenemy = Instantiate(enemy, parent.transform);
-            instenemy.GetComponent<EnemyMove>().Waypoints(waypoints);
+            instenemy.GetComponent<EnemyMoveLvl2>().Waypoints(waypoints);
             enemies.Add(instenemy);
             yield return new WaitForSeconds(delay);
         }

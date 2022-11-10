@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 2915729109550603622}
   - component: {fileID: 2644028271907773958}
   - component: {fileID: -7018959459587256562}
-  - component: {fileID: 4774864880188867785}
+  - component: {fileID: -9069726466668973449}
   m_Layer: 0
   m_Name: Triangle Lvl 2
   m_TagString: Enemy
@@ -232,7 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   healthbar: {fileID: 5967793355831391793}
---- !u!114 &4774864880188867785
+--- !u!114 &-9069726466668973449
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2915729109550603616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8ebf82ec55e32d48afa265ac4120aa6, type: 3}
+  m_Script: {fileID: 11500000, guid: ec45c9cee7fbbef4cb6e4b4296b0e0e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 2915729109550603616}

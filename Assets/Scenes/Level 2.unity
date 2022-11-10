@@ -697,6 +697,7 @@ MonoBehaviour:
   wcGameObject: {fileID: 912375352}
   wcText: {fileID: 912375354}
   startFirstWaveButton: {fileID: 1624488077}
+  enemies: []
   startGame: 0
 --- !u!1 &142956160
 GameObject:
@@ -8276,7 +8277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b83efa4b7f55a6d47a4e46e1f03f5eb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Lvl2: {fileID: 142121149}
+  lvl2: {fileID: 142121149}
   EnemyMove: {fileID: 9072859968800686146, guid: 1ff40f2625892964282868a6b667de21, type: 3}
   wavesText: {fileID: 1520722501}
   enemyText: {fileID: 1843152795}

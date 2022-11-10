@@ -60,15 +60,15 @@ public class TowerSpawnLvl2 : MonoBehaviour
 
     void DeductBalance()
     {
-        if (gameObject.name == "Frog Tower(Clone)" && playerCurrency.Balance >= 50)
+        if (gameObject.name == "Frog Tower Lvl2(Clone)" && playerCurrency.Balance >= 50)
         {
             playerCurrency.NFT_NoStonks();
         }
-        else if (gameObject.name == "Pink Man Tower(Clone)" && playerCurrency.Balance >= 125)
+        else if (gameObject.name == "Pink Man Tower Lvl2(Clone)" && playerCurrency.Balance >= 125)
         {
             playerCurrency.PMT_NoStonks();
         }
-        else if (gameObject.name == "Frog Tower(Clone)" && playerCurrency.Balance < 50 || gameObject.name == "Pink Man Tower(Clone)" && playerCurrency.Balance < 125)
+        else if (gameObject.name == "Frog Tower Lvl2(Clone)" && playerCurrency.Balance < 50 || gameObject.name == "Pink Man Tower Lvl2(Clone)" && playerCurrency.Balance < 125)
         {
             Destroy(gameObject);
         }
